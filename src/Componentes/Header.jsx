@@ -24,7 +24,7 @@ const Header = () => {
     left: 0,
     width: '100%',
     backgroundColor: '#ff99cc',
-    padding: '25px',
+    padding: '23px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     display: 'flex',
     justifyContent: 'space-between',

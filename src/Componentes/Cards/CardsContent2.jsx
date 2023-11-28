@@ -74,7 +74,7 @@ export default function CardsContent2() {
               spaces, earthy toned spaces and for people who love a chic design with a
               sprinkle of vintage design.
             </Text>
-            <Text color='pink' fontSize='2xl'>
+            <Text color='blue.600' fontSize='2xl'>
               $450
             </Text>
           </Stack>

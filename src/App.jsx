@@ -5,10 +5,8 @@ import ImgFondo from './Componentes/ImgFondo';
 import CarritoCompras from './Componentes/CarritoCompras';
 import CardsContent1 from './Componentes/Cards/CardsContent1';
 import CardsContent2 from './Componentes/Cards/CardsContent2';
-
-
-
-
+import Conocenos from './Componentes/Conocenos';
+import Footer from './Componentes/Footer';
 
 
 
@@ -22,6 +20,8 @@ return (
       <ImgFondo />
       <CardsContent1 />
       <CardsContent2 />
+      <Conocenos />
+      <Footer />
     </div>
   );
 };
