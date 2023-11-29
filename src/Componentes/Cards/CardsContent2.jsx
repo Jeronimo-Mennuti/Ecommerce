@@ -22,7 +22,7 @@ export default function CardsContent2() {
       animate={controls}
       transition={{ duration: 0.5 }}
     >
-      <Text fontSize='4xl' textAlign='center' marginTop='80px'>
+      <Text fontSize='4xl' textAlign='center' marginTop='80px' fontFamily='Sora'>
         Offers Day
       </Text>
  <Flex justify="space-around" mt={20} flexWrap="wrap">
@@ -35,13 +35,13 @@ export default function CardsContent2() {
             borderRadius='lg'
           />
           <Stack mt='6' spacing='3'>
-            <Heading size='md'>Living room Sofa</Heading>
-            <Text>
+            <Heading size='md' fontFamily='Sora'>Living room Sofa</Heading>
+            <Text fontFamily='Assistant'>
               This sofa is perfect for modern tropical spaces, baroque inspired
               spaces, earthy toned spaces and for people who love a chic design with a
               sprinkle of vintage design.
             </Text>
-            <Text color='blue.600' fontSize='2xl'>
+            <Text color='blue.600' fontSize='2xl' fontFamily='Sora'>
               $450
             </Text>
           </Stack>
@@ -49,10 +49,10 @@ export default function CardsContent2() {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='20'>
-            <Button variant='solid' colorScheme='pink'>
+            <Button variant='solid' colorScheme='pink' fontFamily='Assistant'>
               Buy now
             </Button>
-            <Button variant='ghost' border='1px' colorScheme='pink'>
+            <Button variant='ghost' border='1px' colorScheme='pink' fontFamily='Assistant'>
               Add to cart
             </Button>
           </ButtonGroup>
@@ -68,13 +68,13 @@ export default function CardsContent2() {
             borderRadius='lg'
           />
           <Stack mt='6' spacing='3'>
-            <Heading size='md'>Living room Sofa</Heading>
-            <Text>
+            <Heading size='md' fontFamily='Sora'>Living room Sofa</Heading>
+            <Text fontFamily='Assistant'>
               This sofa is perfect for modern tropical spaces, baroque inspired
               spaces, earthy toned spaces and for people who love a chic design with a
               sprinkle of vintage design.
             </Text>
-            <Text color='blue.600' fontSize='2xl'>
+            <Text color='blue.600' fontSize='2xl' fontFamily='Sora'>
               $450
             </Text>
           </Stack>
@@ -82,10 +82,10 @@ export default function CardsContent2() {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='20'>
-            <Button variant='solid' colorScheme='pink'>
+            <Button variant='solid' colorScheme='pink' fontFamily='Assistant'>
               Buy now
             </Button>
-            <Button variant='ghost' border='1px' colorScheme='pink'>
+            <Button variant='ghost' border='1px' colorScheme='pink' fontFamily='Assistant'>
               Add to cart
             </Button>
           </ButtonGroup>
@@ -101,13 +101,13 @@ export default function CardsContent2() {
             borderRadius='lg'
           />
           <Stack mt= '6' spacing='3'>
-            <Heading size='md'>Living room Sofa</Heading>
-            <Text>
+            <Heading size='md' fontFamily='Sora'>Living room Sofa</Heading>
+            <Text fontFamily='Assistant'>
               This sofa is perfect for modern tropical spaces, baroque inspired
               spaces, earthy toned spaces and for people who love a chic design with a
               sprinkle of vintage design.
             </Text>
-            <Text color='blue.600' fontSize='2xl'>
+            <Text color='blue.600' fontSize='2xl' fontFamily='Sora'>
               $450
             </Text>
           </Stack>
@@ -115,10 +115,10 @@ export default function CardsContent2() {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='20'>
-            <Button variant='solid' colorScheme='pink'>
+            <Button variant='solid' colorScheme='pink' fontFamily='Assistant'>
               Buy now
             </Button>
-            <Button variant='ghost' border='1px' colorScheme='pink'>
+            <Button variant='ghost' border='1px' colorScheme='pink' fontFamily='Assistant'>
               Add to cart
             </Button>
           </ButtonGroup>

@@ -26,11 +26,11 @@ function Conocenos() {
         </Box>
         <Box>
           {/* Título "Conócenos" */}
-          <Heading as="h1" size="xl" color="white" mb={2}>
+          <Heading as="h1" size="xl" color="white" mb={2} fontFamily='Sora'>
             Conócenos
           </Heading>
           {/* Texto a continuación del título */}
-          <Text color="white">
+          <Text color="white" fontFamily='Assistant'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in

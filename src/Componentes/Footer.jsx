@@ -35,15 +35,15 @@ function Footer() {
                 <Flex align={{ md: 'flex-start' }} flexDirection="column" mr={{ md: 4 }}>
                     <Box mb={4} display="flex" alignItems="center">
                         <Icon as={FaEnvelope} boxSize={4} mr={2} />
-                        <Text>ejemplo@gmail.com</Text>
+                        <Text fontFamily='Sora'>ejemplo@gmail.com</Text>
                     </Box>
                     <Box mb={4} display="flex" alignItems="flex-start">
                         <Icon as={FaMapMarkerAlt} boxSize={4} mr={2} />
-                        <Text>San Martin 1234, B2942 Baradero</Text>
+                        <Text fontFamily='Sora'>San Martin 1234, B2942 Baradero</Text>
                     </Box>
                     <Box display="flex" alignItems="center">
                         <Icon as={FaPhoneAlt} boxSize={4} mr={2} />
-                        <Text>+1 234 567 890</Text>
+                        <Text fontFamily='Sora'>+1 234 567 890</Text>
                     </Box>
                 </Flex>
                 {/* Columna con icono de flecha hacia arriba en el centro */}
@@ -63,8 +63,8 @@ function Footer() {
                     transition="transform 0.2s ease-in-out"  // Agrega una transición suave
                 >
                     <Flex align="center" direction="column">
-                        <Icon as={FaArrowUp} boxSize={10} />
-                        <Text>Volver Arriba</Text>
+                        <Icon as={FaArrowUp} boxSize={9}/>
+                        <Text fontFamily='Sora'>Volver Arriba</Text>
                     </Flex>
                 </Box>
             </Flex>

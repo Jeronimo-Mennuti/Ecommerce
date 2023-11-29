@@ -21,7 +21,7 @@ export default function CardContent1() {
 
   return (
     <Stack direction='column' spacing={2} align='center'>
-      <Text fontSize='4xl' textAlign='center' marginTop='50px'>
+      <Text fontSize='4xl' textAlign='center' marginTop='50px' fontFamily='Sora'>
       Featured Products
       </Text>
 
@@ -35,15 +35,15 @@ export default function CardContent1() {
           />
           <Stack>
             <CardHeader>
-              <Heading size='md'>The perfect latte</Heading>
+              <Heading size='md' fontFamily='Sora'>The perfect latte</Heading>
             </CardHeader>
             <CardBody>
-              <Text py='2'>
+              <Text py='2' fontFamily='Assistant'>
                 Caffè latte is a coffee beverage of Italian origin made with espresso and steamed milk.
               </Text>
             </CardBody>
             <CardFooter>
-              <Button as={ChakraLink} variant='solid' colorScheme='pink' href='#'>
+              <Button as={ChakraLink} variant='solid' colorScheme='pink' href='#' fontFamily='Sora'>
                 Buy Now
               </Button>
             </CardFooter>
@@ -61,15 +61,15 @@ export default function CardContent1() {
           />
           <Stack>
             <CardHeader>
-              <Heading size='md'>The perfect latte</Heading>
+              <Heading size='md' fontFamily='Sora'>The perfect latte</Heading>
             </CardHeader>
             <CardBody>
-              <Text py='2'>
+              <Text py='2' fontFamily='Assistant'>
                 Caffè latte is a coffee beverage of Italian origin made with espresso and steamed milk.
               </Text>
             </CardBody>
             <CardFooter>
-              <Button as={ChakraLink} variant='solid' colorScheme='pink' href='#'>
+              <Button as={ChakraLink} variant='solid' colorScheme='pink' href='#' fontFamily='Sora'>
                 Buy Now
               </Button>
             </CardFooter>

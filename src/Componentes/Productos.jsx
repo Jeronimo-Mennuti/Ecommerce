@@ -1,11 +1,9 @@
 import React from 'react'
 
-function Productos() {
+export default function Productos() {
   return (
     <div>
       hola
     </div>
   )
 }
-
-export default Productos

@@ -8,19 +8,19 @@ const Header = () => {
           <FaFacebook size="1.5rem" style={iconStyle} />
           <FaInstagram size="1.5rem" style={iconStyle} />
           <FaPhone size="1.5rem" style={iconStyle} />
-          <span style={phoneNumberStyle}>+1 234 567 890</span>
+          <span style={phoneNumberStyle} fontFamily='Sora'>+1 234 567 890</span>
         </div>
         <div style={rightContainerStyle}>
           <FaShippingFast size="1.5rem" style={iconStyle} />
-          <span style={freeShippingStyle}>Envíos Gratis</span>
+          <span style={freeShippingStyle} fontFamily='Sora'>Envíos Gratis</span>
         </div>
       </header>
     );
   };
   
   const headerStyle = {
-    position: 'fixed',
-    top: 0,
+    position: 'absolute',
+    top: -80,
     left: 0,
     width: '100%',
     backgroundColor: '#ff99cc',
@@ -28,6 +28,7 @@ const Header = () => {
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     display: 'flex',
     justifyContent: 'space-between',
+    
   };
   
   const leftContainerStyle = {
@@ -48,13 +49,15 @@ const Header = () => {
   };
   
   const phoneNumberStyle = {
-    fontSize: '1rem',
+    fontSize: '0.9rem',
     color: '#fff',
+    fontFamily:'Sora'
   };
   
   const freeShippingStyle = {
     fontSize: '1rem',
     color: '#fff',
+    fontFamily:'Sora'
   };
   
   
