@@ -1,9 +1,167 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Header from '../Componentes/Header';
+import NavBar from './NavBar';
+import { Box, Text, Flex, Image, ChakraProvider } from '@chakra-ui/react';
+import Footer from '../Componentes/Footer';
+import FiltroProductos from './FiltroProductos';
+import InputBusqueda from './InputBusqueda';
+
+
+const productos = [
+  {
+    id: 1,
+    categoria: 'Tinto',
+    nombre: 'EL ACOMPAÑANTE - BOTELLA 750C',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '4000',
+    tipo:'botella'
+  },
+  {
+    id: 2,
+    categoria: 'Tinto',
+    nombre: 'DE LADO A LADO - BOTELLA DE 750C',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '4000',
+    tipo:'botella'
+  },
+  {
+    id: 3,
+    categoria: 'Tinto',
+    nombre: 'EUPOROS DE ORO - BOTELLA 750C',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '6000',
+    tipo:'botella'
+  },
+  {
+    id: 4,
+    categoria: 'Blanco',
+    nombre: 'PINIO - BOTELLA DE 75C',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '6000',
+    tipo:'botella'
+  },
+  {
+    id: 5,
+    categoria: 'Tinto',
+    nombre: 'VALUS - CAJA DE SEIS',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '2000',
+    tipo:'botella'
+  },
+  {
+    id: 6,
+    categoria: 'Tinto',
+    nombre: 'EL ACOMPAÑANTE - CAJA DE SEIS',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '2000',
+    tipo:'caja'
+  },
+  {
+    id: 7,
+    categoria: 'Blanco',
+    nombre: 'DE LADO A LADO - PALLET',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '2000',
+    tipo:'pallet'
+  },
+  {
+    id: 8,
+    categoria: 'Blanco',
+    nombre: 'EUPOROS - PALLET',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '8000',
+    tipo:'pallet'
+  },
+  {
+    id: 9,
+    categoria: 'Blanco',
+    nombre: 'PININO - PALLET',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '8000',
+    tipo:'pallet'
+  },
+  {
+    id: 10,
+    categoria: 'Blanco',
+    nombre: 'VALUS - PALLET',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '8000',
+    tipo:'pallet'
+  },
+ 
+];
+
 
 export default function Productos() {
+  const [orden, setOrden] = useState('default');
+  const [productosFiltrados, setProductosFiltrados] = useState(productos);
+
+  const handleOrdenChange = (event) => {
+    setOrden(event.target.value);
+  };
+
+  const ordenarProductos = (productos, orden) => {
+    switch (orden) {
+      case 'precioAsc':
+        return [...productos].sort((a, b) => a.precio - b.precio);
+      case 'precioDesc':
+        return [...productos].sort((a, b) => b.precio - a.precio);
+      case 'categoria':
+        return [...productos].sort((a, b) => a.tipo.localeCompare(b.tipo));
+      case 'tipo':
+        return [...productos].sort((a, b) => a.tipo.localeCompare(b.tipo));
+      default:
+        return productos;
+    }
+  };
+
+  const handleBusqueda = (productosFiltrados) => {
+    setProductosFiltrados(productosFiltrados);
+  };
+
+  const productosOrdenados = ordenarProductos(productosFiltrados, orden);
+
   return (
-    <div>
-      hola
-    </div>
-  )
+    <ChakraProvider>
+      <Header />
+      <NavBar />
+      <Flex direction="column" align="center" justify="center">
+        <div
+          style={{
+            position: 'sticky',
+            top: 0,
+            width: '100%',
+            background: 'white',
+            zIndex: 1,
+            textAlign: 'center',
+          }}
+        >
+          <h1 style={{ fontSize: '50px', marginBottom: '20px' }}>Nuestra Selección</h1>
+          <InputBusqueda productos={productos} onBusqueda={handleBusqueda} />
+          <FiltroProductos orden={orden} onOrdenChange={handleOrdenChange} />
+        </div>
+        <Flex wrap="wrap" justify="space-around" maxW="1200px" mx="auto" mt="80px">
+          {productosOrdenados.map((producto) => (
+            <Box
+              key={producto.id}
+              w={{ base: '100%', md: '50%', lg: '25%' }}
+              p={4}
+              h="100%"
+            >
+              <Flex direction="column" align="center" h="100%">
+                <Image src={producto.imagen} alt={producto.nombre} />
+                <Box p="6" textAlign="center">
+                  <Text fontWeight="semibold" fontSize="lg" mb="2">
+                    {producto.nombre}
+                  </Text>
+                  <Text color="gray.500">${producto.precio}</Text>
+                </Box>
+              </Flex>
+            </Box>
+          ))}
+        </Flex>
+      </Flex>
+      <Footer />
+    </ChakraProvider>
+  );
 }

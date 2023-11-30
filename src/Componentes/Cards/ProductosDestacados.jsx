@@ -25,7 +25,7 @@ export default function CardContent1() {
       Featured Products
       </Text>
 
-      <motion.div ref={refRight} initial={{ x: 1000, opacity: 0 }} animate={controlsRight} transition={{ duration: 1.2 }}>
+      <motion.div ref={refRight} initial={{ x: 600, opacity: 0 }} animate={controlsRight} transition={{ duration: 1.2 }}>
         <Card overflow='hidden' boxShadow='none' mt={20} mb={4}>
           <Image
             objectFit='cover'
@@ -51,7 +51,7 @@ export default function CardContent1() {
         </Card>
       </motion.div>
       
-    <motion.div ref={refLeft} initial={{ x: -1000, opacity: 0 }} animate={controlsLeft} transition={{ duration: 2.2 }}>
+    <motion.div ref={refLeft} initial={{ x: 600, opacity: 0 }} animate={controlsLeft} transition={{ duration: 2.2 }}>
         <Card overflow='hidden' boxShadow='none' mt={20} mb={4}>
           <Image
             objectFit='cover'
