@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Icon, Badge, Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody, IconButton, useDisclosure } from '@chakra-ui/react';
 import { BiShoppingBag } from 'react-icons/bi';
 import { FaTimes } from 'react-icons/fa';
 
 export default function CarritoCompras({ itemCount }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [carrito, setCarrito] = useState([]); // Estado para almacenar productos en el carrito
 
-  return (
+  const handleAgregarAlCarrito = (producto) => {
+    setCarrito((prevCarrito) => {
+      const nuevoCarrito = [...prevCarrito, producto];
+      console.log('Agregando al carrito:', producto.nombre);
+      console.log('Carrito actualizado:', nuevoCarrito);
+      return nuevoCarrito;
+    });
+  };
+
+  console.log('Estado actual del carrito en CarritoCompras:', carrito);
+  
+  
+return (
     <>
       <Box position="relative" onClick={onOpen} cursor="pointer">
         <Icon as={BiShoppingBag} boxSize={8} fontWeight="normal" />
@@ -50,9 +63,10 @@ export default function CarritoCompras({ itemCount }) {
             />
           </DrawerHeader>
           <DrawerBody>
-            {/* Aquí puedes colocar el contenido del carrito de compras */}
-            <p>Agrega un Producto...</p>
-            
+            {/* Lista de productos en el carrito */}
+            {carrito.map((producto) => (
+              <p key={producto.id}>{producto.nombre}</p>
+            ))}
           </DrawerBody>
         </DrawerContent>
       </Drawer>

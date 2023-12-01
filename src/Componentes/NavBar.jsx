@@ -37,6 +37,11 @@ const NavBar = () => {
           boxSize="130px"
           objectFit="cover"
           borderRadius="20"
+          cursor='pointer'
+          onClick={() => {
+            navigate('/');
+            setIsMenuOpen(false);
+          }}
         />
       </Flex>
       <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -50,6 +55,10 @@ const NavBar = () => {
             _hover={{ transform: 'translateY(-5px)', transition: '0.3s' }}
             onMouseEnter={() => setIsHovered('inicio')}
             onMouseLeave={() => setIsHovered(null)}
+            onClick={() => {
+              navigate('/');
+              setIsMenuOpen(false);
+            }}
           >
             Inicio
           </Button>
@@ -99,7 +108,10 @@ const NavBar = () => {
           }}
         />
         <MenuList>
-          <MenuItem>Inicio</MenuItem>
+        
+          <MenuItem>
+          <Link to="/Inicio">Inicio</Link>
+          </MenuItem>
           <MenuItem>
             <Link to="/Productos">Productos</Link>
           </MenuItem>

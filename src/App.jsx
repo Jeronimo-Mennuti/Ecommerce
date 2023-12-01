@@ -1,4 +1,4 @@
-{/* arreglar el enrutamiento para que al hacer click en productos me abra el componente solo */}
+
 {/* arreglar el ancho de la pagina porque hace scroll hacia la izquierda*/}
 {/* agregar carrito de compras*/}
 {/* arreglar cards de ofertas*/}
@@ -38,12 +38,6 @@ const HomeContent = () => (
   </>
 );
 
-const CardsContent1 = () => {
-  // Lógica y JSX para CardsContent1
-};
 
-const CardsContent2 = () => {
-  // Lógica y JSX para CardsContent2
-};
 
 export default App;

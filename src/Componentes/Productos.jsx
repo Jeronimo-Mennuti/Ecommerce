@@ -5,7 +5,7 @@ import { Box, Text, Flex, Image, ChakraProvider } from '@chakra-ui/react';
 import Footer from '../Componentes/Footer';
 import FiltroProductos from './FiltroProductos';
 import InputBusqueda from './InputBusqueda';
-
+import BotonAgregarCarrito from './BotonAgregarCarrito';
 
 const productos = [
   {
@@ -92,35 +92,47 @@ const productos = [
 ];
 
 
-export default function Productos() {
+export default function Productos({ onAgregarAlCarrito }) {
   const [orden, setOrden] = useState('default');
   const [productosFiltrados, setProductosFiltrados] = useState(productos);
 
   const handleOrdenChange = (event) => {
-    setOrden(event.target.value);
+    const nuevaOrden = event.target.value;
+    setOrden(nuevaOrden);
   };
 
-  const ordenarProductos = (productos, orden) => {
-    switch (orden) {
-      case 'precioAsc':
-        return [...productos].sort((a, b) => a.precio - b.precio);
-      case 'precioDesc':
-        return [...productos].sort((a, b) => b.precio - a.precio);
-      case 'categoria':
-        return [...productos].sort((a, b) => a.tipo.localeCompare(b.tipo));
-      case 'tipo':
-        return [...productos].sort((a, b) => a.tipo.localeCompare(b.tipo));
-      default:
-        return productos;
+  const handleAgregarAlCarrito = (producto) => {
+  console.log('Agregando al carrito:', producto.nombre);
+ 
+};
+
+const ordenarProductos = (productos, orden) => {
+  return productos.slice().sort((a, b) => {
+    if (orden === 'categoria') {
+      return a.categoria.localeCompare(b.categoria);
+    } else if (orden === 'precio-bajo') {
+      return parseFloat(a.precio) - parseFloat(b.precio);
+    } else if (orden === 'precio-alto') {
+      return parseFloat(b.precio) - parseFloat(a.precio);
+    } else {
+      // Si la opción de orden no es reconocida, devolver los productos sin cambios
+      return 0;
     }
-  };
+  });
+};
 
-  const handleBusqueda = (productosFiltrados) => {
-    setProductosFiltrados(productosFiltrados);
-  };
+const handleBusqueda = (terminoBusqueda) => {
+  const productosFiltrados = productos.filter((producto) =>
+    producto.nombre.toLowerCase().includes(terminoBusqueda.toLowerCase())
+  );
+  setProductosFiltrados(productosFiltrados);
+};
 
   const productosOrdenados = ordenarProductos(productosFiltrados, orden);
+  console.log('Productos ordenados:', productosOrdenados);
 
+  
+  try{
   return (
     <ChakraProvider>
       <Header />
@@ -141,27 +153,32 @@ export default function Productos() {
           <FiltroProductos orden={orden} onOrdenChange={handleOrdenChange} />
         </div>
         <Flex wrap="wrap" justify="space-around" maxW="1200px" mx="auto" mt="80px">
-          {productosOrdenados.map((producto) => (
-            <Box
-              key={producto.id}
-              w={{ base: '100%', md: '50%', lg: '25%' }}
-              p={4}
-              h="100%"
-            >
-              <Flex direction="column" align="center" h="100%">
-                <Image src={producto.imagen} alt={producto.nombre} />
-                <Box p="6" textAlign="center">
-                  <Text fontWeight="semibold" fontSize="lg" mb="2">
-                    {producto.nombre}
-                  </Text>
-                  <Text color="gray.500">${producto.precio}</Text>
-                </Box>
-              </Flex>
-            </Box>
-          ))}
-        </Flex>
+        {productosOrdenados && productosOrdenados.map((producto) => (
+          <Box
+            key={producto.id}
+            w={{ base: '100%', md: '50%', lg: '25%' }}
+            p={4}
+            h="100%"
+          >
+            <Flex direction="column" align="center" h="100%">
+              <Image src={producto.imagen} alt={producto.nombre} />
+              <Box p="6" textAlign="center">
+                <Text fontWeight="semibold" fontFamily="Assistant" fontSize="17" mb="2">
+                  {producto.nombre}
+                </Text>
+                <Text color="gray.500">${producto.precio}</Text>
+                <BotonAgregarCarrito onClick={() => handleAgregarAlCarrito(producto)} />
+              </Box>
+            </Flex>
+          </Box>
+        ))}
+      </Flex>
       </Flex>
       <Footer />
     </ChakraProvider>
   );
+}catch (error) {
+  console.error('Error al renderizar las tarjetas:', error);
+  return null; // O muestra un mensaje de error en lugar de retornar null
+}
 }
