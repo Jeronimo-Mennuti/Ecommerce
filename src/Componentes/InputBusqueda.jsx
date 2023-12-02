@@ -26,20 +26,20 @@ const InputBusqueda = ({ productos, onBusqueda }) => {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: 'right', marginRight: '1rem' }}>
       <InputGroup>
-      <Input
-  placeholder="Buscar producto por nombre"
-  value={busqueda}
-  onChange={(e) => handleBusqueda(e.target.value)}
-  borderRadius="md"
-  px={3} // Reduje el tamaño horizontal
-  size="md" // Tamaño pequeño
-  _focus={{ borderColor: 'none', boxShadow: 'none' }}
-  w={{ base: '50%', md: '50%', lg: '20%' }} // Ancho del 100% en pantallas pequeñas, 50% en medianas y 30% en grandes
-/>
+        <Input
+          placeholder="Buscar producto"
+          value={busqueda}
+          onChange={(e) => handleBusqueda(e.target.value)}
+          borderRadius="md"
+          px={3}
+          size="md"
+          _focus={{ borderColor: 'none', boxShadow: 'none' }}
+          w={{ base: '90%', md: '70%', lg: '90%' }} // Ancho del 90% en pantallas pequeñas, 70% en medianas y 90% en grandes
+        />
       </InputGroup>
-
+  
       <Grid templateColumns="repeat(3, 1fr)" gap={6} mt={4}>
         {productos.map((producto) => (
           <GridItem key={producto.id}>
@@ -63,7 +63,5 @@ const InputBusqueda = ({ productos, onBusqueda }) => {
       </Grid>
     </div>
   );
-};
-
+        }
 export default InputBusqueda;
-
