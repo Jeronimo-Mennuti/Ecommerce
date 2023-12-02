@@ -6,24 +6,29 @@ const InputBusqueda = ({ productos, onBusqueda }) => {
   const [busqueda, setBusqueda] = useState('');
 
   const handleBusqueda = (value) => {
-    setBusqueda(value);
+  setBusqueda(value);
 
-    if (value === '') {
-      onBusqueda(productos);
-    } else {
-      const options = {
-        keys: ['nombre'],
-        includeScore: true,
-        threshold: 0.4,
-      };
+  if (value === '') {
+    onBusqueda(productos);
+  } else {
+    const options = {
+      keys: ['nombre'],
+      includeScore: true,
+      threshold: 0.4,
+    };
 
-      const fuse = new Fuse(productos, options);
-      const result = fuse.search(value);
-      const productosFiltrados = result.map((item) => item.item);
+    const fuse = new Fuse(productos, options);
 
-      onBusqueda(productosFiltrados);
-    }
-  };
+    // Verificar si terminoBusqueda es una cadena antes de realizar operaciones de cadena
+    const terminoBusquedaLowerCase = typeof value === 'string' ? value.toLowerCase() : value;
+
+    const result = fuse.search(terminoBusquedaLowerCase);
+    
+    const productosFiltrados = result.map((item) => item.item);
+
+    onBusqueda(productosFiltrados);
+  }
+};
 
   return (
     <div style={{ textAlign: 'right', marginRight: '1rem' }}>

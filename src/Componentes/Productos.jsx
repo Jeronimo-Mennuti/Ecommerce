@@ -88,6 +88,23 @@ const productos = [
     precio: '8000',
     tipo: 'pallet'
   },
+  {
+    id: 11,
+    categoria: 'Blanco',
+    nombre: 'VALUS - PALLET',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '10000',
+    tipo: 'pallet'
+  },
+  {
+    id: 12,
+    categoria: 'Blanco',
+    nombre: 'VALUS - PALLET',
+    imagen: 'https://via.placeholder.com/150',
+    precio: '10000',
+    tipo: 'pallet'
+  },
+  
 
 ];
 
